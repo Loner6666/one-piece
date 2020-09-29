@@ -1,0 +1,29 @@
+# 端口号【海贼王出版期间：1997】
+server:
+  port: 1997
+  # 服务的根路径
+  servlet:
+    context-path: /one-piece
+
+# 服务名称
+spring:
+  application:
+    name: one-piece
+  # 设置数据库连接
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gmall?serverTimezone=GMT
+    username: root
+    password: root
+
+# 扫描MyBatis的xml文件
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+# 控制台打印SQL
+logging:
+  level:
+    com.example.service.dao: debug
+
+
