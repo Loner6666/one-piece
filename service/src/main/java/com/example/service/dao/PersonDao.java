@@ -16,6 +16,12 @@ public interface PersonDao {
 
     int insertSelective(Person record);
 
+    /**
+     * 根据id查询成员
+     *
+     * @param id
+     * @return Person
+     */
     Person selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Person record);

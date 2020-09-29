@@ -12,8 +12,16 @@ public interface PersonService {
     /**
      * 查询所有成员
      *
-     * @return
+     * @return ResultObject
      */
     ResultObject getAll();
+
+    /**
+     * 根据id查询成员
+     *
+     * @param id 主键
+     * @return ResultObject
+     */
+    ResultObject getPerson(int id);
 
 }

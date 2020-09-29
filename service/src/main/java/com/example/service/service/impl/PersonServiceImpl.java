@@ -36,4 +36,17 @@ public class PersonServiceImpl implements PersonService {
         }
     }
 
+    @Override
+    public ResultObject getPerson(int id) {
+        try {
+            log.info("根据id查询成员，开始————>{}", JSON.toJSONString(id));
+            Person person = this.personDao.selectByPrimaryKey(id);
+            log.info("根据id查询成员，结束————>{}", JSON.toJSONString(person));
+            return ResultObject.successData(person);
+        } catch (Exception e) {
+            log.error("根据id查询成员，异常：{},{}", e.getMessage(), e);
+            return ResultObject.error("查询失败！");
+        }
+    }
+
 }

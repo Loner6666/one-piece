@@ -22,4 +22,9 @@ public class PersonController implements PersonClient {
         return this.personService.getAll();
     }
 
+    @Override
+    public ResultObject getPerson(int id) {
+        return this.personService.getPerson(id);
+    }
+
 }
