@@ -1,0 +1,155 @@
+=====================================》
+1、功能描述：查询所有成员
+    URL：localhost:1997/one-piece/person/getAll
+    请求方式：GET
+    返回数据：{
+             "code": 200,
+             "message": "操作成功",
+             "data": [
+                 {
+                     "id": 1,
+                     "name": "蒙奇·D·路飞",
+                     "gender": "男",
+                     "age": 19,
+                     "nickname": "草帽小子",
+                     "position": "草帽一伙船长",
+                     "birthday": "2001-05-04",
+                     "address": "东海·风车村",
+                     "updateTime": "2020-09-29 19:01:36"
+                 },
+                 {
+                     "id": 2,
+                     "name": "罗罗诺亚·索隆",
+                     "gender": "男",
+                     "age": 21,
+                     "nickname": "海贼猎人",
+                     "position": "东海海贼赏金猎人",
+                     "birthday": "1999-11-10",
+                     "address": "东海·霜月村",
+                     "updateTime": "2020-09-29 19:03:20"
+                 },
+                 {
+                     "id": 3,
+                     "name": "娜美",
+                     "gender": "女",
+                     "age": 20,
+                     "nickname": "小贼猫",
+                     "position": "草帽一伙航海士",
+                     "birthday": "2020-07-02",
+                     "address": "东海▪可可亚西村",
+                     "updateTime": "2020-09-29 19:04:28"
+                 },
+                 {
+                     "id": 4,
+                     "name": "乌索普",
+                     "gender": "男",
+                     "age": 19,
+                     "nickname": "GOD",
+                     "position": "草帽一伙狙击手",
+                     "birthday": "2001-03-31",
+                     "address": "东海▪西罗普村",
+                     "updateTime": "2020-09-29 19:05:41"
+                 },
+                 {
+                     "id": 5,
+                     "name": "山治",
+                     "gender": "男",
+                     "age": 21,
+                     "nickname": "黑足",
+                     "position": "草帽一伙厨师",
+                     "birthday": "1999-03-01",
+                     "address": "北海",
+                     "updateTime": "2020-09-29 19:07:07"
+                 },
+                 {
+                     "id": 6,
+                     "name": "托尼托尼·乔巴",
+                     "gender": "男",
+                     "age": 17,
+                     "nickname": "爱吃棉花糖的驯鹿",
+                     "position": "草帽一伙船医",
+                     "birthday": "2003-09-28",
+                     "address": "伟大航路▪磁鼓岛（冬岛、樱花之国）",
+                     "updateTime": "2020-09-29 19:08:50"
+                 },
+                 {
+                     "id": 7,
+                     "name": "妮可·罗宾",
+                     "gender": "女",
+                     "age": 30,
+                     "nickname": "恶魔之子",
+                     "position": "草帽一伙考古学家",
+                     "birthday": "1990-02-05",
+                     "address": "西海▪奥哈拉岛（已灭）",
+                     "updateTime": "2020-09-29 19:10:17"
+                 },
+                 {
+                     "id": 8,
+                     "name": "弗兰奇",
+                     "gender": "男",
+                     "age": 36,
+                     "nickname": "改造人",
+                     "position": "草帽一伙船工",
+                     "birthday": "1984-03-08",
+                     "address": "南海",
+                     "updateTime": "2020-09-29 19:11:54"
+                 },
+                 {
+                     "id": 9,
+                     "name": "布鲁克",
+                     "gender": "男",
+                     "age": 90,
+                     "nickname": "灵魂之王",
+                     "position": "草帽一伙音乐家",
+                     "birthday": "1910-04-02",
+                     "address": "西海",
+                     "updateTime": "2020-09-29 19:12:56"
+                 },
+                 {
+                     "id": 10,
+                     "name": "甚平",
+                     "gender": "男",
+                     "age": 46,
+                     "nickname": "海侠",
+                     "position": "草帽一伙舵手",
+                     "birthday": "1974-04-01",
+                     "address": "鱼人岛",
+                     "updateTime": "2020-09-29 19:14:57"
+                 }
+             ]
+         }
+=====================================》
+2、功能描述：根据id查询成员
+    URL：localhost:1997/one-piece/person/1
+    请求方式：GET
+    返回数据：{
+             "code": 200,
+             "message": "操作成功",
+             "data": {
+                 "id": 1,
+                 "name": "蒙奇·D·路飞",
+                 "gender": "男",
+                 "age": 19,
+                 "nickname": "草帽小子",
+                 "position": "草帽一伙船长",
+                 "birthday": "2001-05-04",
+                 "address": "东海·风车村",
+                 "updateTime": "2020-09-29 19:01:36"
+             }
+         }
+
+
+
+
+
+执行的SQL语句：
+--  1  2020-09-29 16:54:17.482 DEBUG 7304 --- [nio-1997-exec-2] c.example.service.dao.PersonDao.getAll   : ==>
+select id, `name`, gender, age, nickname, `position`, birthday, address, update_time
+ FROM person;
+-- ---------------------------------------------------------------------------------------------------------------------
+--  2  2020-09-29 16:56:15.866 DEBUG 7304 --- [nio-1997-exec-5] c.e.s.dao.PersonDao.selectByPrimaryKey   : ==>
+select id, `name`, gender, age, nickname, `position`, birthday, address, update_time
+ FROM person
+ WHERE id = 1;
+-- ---------------------------------------------------------------------------------------------------------------------
+
