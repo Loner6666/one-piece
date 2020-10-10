@@ -2,6 +2,7 @@ package com.example.service.dao;
 
 
 import com.example.sdk.bean.Person;
+import com.example.sdk.vo.PersonVo;
 
 import java.util.List;
 
@@ -35,5 +36,13 @@ public interface PersonDao {
      */
 //    @Select("select * from person")
     List<Person> getAll();
+
+    /**
+     * 分页查询
+     *
+     * @param request 分页查询实体
+     * @return list
+     */
+    List<PersonVo> getPersonPage(PersonVo request);
 
 }

@@ -1,9 +1,8 @@
 package com.example.sdk.api;
 
 import com.example.sdk.common.ResultObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.example.sdk.vo.PersonVo;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Description： person 的 api 层
@@ -29,5 +28,14 @@ public interface PersonClient {
      */
     @GetMapping("/{id}")
     ResultObject getPerson(@PathVariable int id);
+
+    /**
+     * 分页查询
+     *
+     * @param request 分页查询实体
+     * @return ResultObject
+     */
+    @PostMapping("/getPersonPage")
+    ResultObject getPersonPage(@RequestBody PersonVo request);
 
 }

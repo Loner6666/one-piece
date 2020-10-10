@@ -1,6 +1,7 @@
 package com.example.service.service;
 
 import com.example.sdk.common.ResultObject;
+import com.example.sdk.vo.PersonVo;
 
 /**
  * @Description： person 的 服务层
@@ -23,5 +24,13 @@ public interface PersonService {
      * @return ResultObject
      */
     ResultObject getPerson(int id);
+
+    /**
+     * 分页查询
+     *
+     * @param request 分页查询实体
+     * @return ResultObject
+     */
+    ResultObject getPersonPage(PersonVo request);
 
 }

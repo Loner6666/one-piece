@@ -2,6 +2,7 @@ package com.example.service.controller;
 
 import com.example.sdk.api.PersonClient;
 import com.example.sdk.common.ResultObject;
+import com.example.sdk.vo.PersonVo;
 import com.example.service.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,11 @@ public class PersonController implements PersonClient {
     @Override
     public ResultObject getPerson(int id) {
         return this.personService.getPerson(id);
+    }
+
+    @Override
+    public ResultObject getPersonPage(PersonVo request) {
+        return this.personService.getPersonPage(request);
     }
 
 }

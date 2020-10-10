@@ -146,4 +146,10 @@
         from person
     </select>
 
+    <select id="getPersonPage" parameterType="com.example.sdk.vo.PersonVo" resultType="com.example.sdk.vo.PersonVo">
+        select
+        <include refid="Base_Column_List"/>
+        from person
+    </select>
+
 </mapper>

@@ -138,8 +138,88 @@
              }
          }
 
-
-
+=====================================》
+3、功能描述：分页查询
+    URL：localhost:1997/one-piece/person/getPersonPage
+    请求方式：POST
+    请求数据：
+    {
+        "pageNum": 1,
+        "pageSize": 3
+    }
+    返回数据：
+{
+    "code": 200,
+    "message": "操作成功",
+    "data": {
+        "total": 10,
+        "list": [
+            {
+                "id": 1,
+                "name": "蒙奇·D·路飞",
+                "gender": "男",
+                "age": 19,
+                "nickname": "草帽小子",
+                "position": "草帽一伙船长",
+                "birthday": "2001-05-04",
+                "address": "东海·风车村",
+                "updateTime": null,
+                "pageNum": null,
+                "pageSize": null,
+                "pageTotal": null
+            },
+            {
+                "id": 2,
+                "name": "罗罗诺亚·索隆",
+                "gender": "男",
+                "age": 21,
+                "nickname": "海贼猎人",
+                "position": "东海海贼赏金猎人",
+                "birthday": "1999-11-10",
+                "address": "东海·霜月村",
+                "updateTime": null,
+                "pageNum": null,
+                "pageSize": null,
+                "pageTotal": null
+            },
+            {
+                "id": 3,
+                "name": "娜美",
+                "gender": "女",
+                "age": 20,
+                "nickname": "小贼猫",
+                "position": "草帽一伙航海士",
+                "birthday": "2020-07-02",
+                "address": "东海▪可可亚西村",
+                "updateTime": null,
+                "pageNum": null,
+                "pageSize": null,
+                "pageTotal": null
+            }
+        ],
+        "pageNum": 1,
+        "pageSize": 3,
+        "size": 3,
+        "startRow": 1,
+        "endRow": 3,
+        "pages": 4,
+        "prePage": 0,
+        "nextPage": 2,
+        "isFirstPage": true,
+        "isLastPage": false,
+        "hasPreviousPage": false,
+        "hasNextPage": true,
+        "navigatePages": 8,
+        "navigatepageNums": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "navigateFirstPage": 1,
+        "navigateLastPage": 4
+    }
+}
 
 
 执行的SQL语句：
@@ -151,5 +231,15 @@ select id, `name`, gender, age, nickname, `position`, birthday, address, update_
 select id, `name`, gender, age, nickname, `position`, birthday, address, update_time
  FROM person
  WHERE id = 1;
+-- ---------------------------------------------------------------------------------------------------------------------
+
+--  3  2020-10-10 16:19:17.515 DEBUG 20032 --- [nio-1997-exec-1] c.e.s.dao.PersonDao.getPersonPage_COUNT  : ==>
+SELECT count(0)
+ FROM person;
+-- ---------------------------------------------------------------------------------------------------------------------
+--  4  2020-10-10 16:19:17.534 DEBUG 20032 --- [nio-1997-exec-1] c.e.service.dao.PersonDao.getPersonPage  : ==>
+select id, `name`, gender, age, nickname, `position`, birthday, address, update_time
+ FROM person
+ LIMIT 3;
 -- ---------------------------------------------------------------------------------------------------------------------
 
